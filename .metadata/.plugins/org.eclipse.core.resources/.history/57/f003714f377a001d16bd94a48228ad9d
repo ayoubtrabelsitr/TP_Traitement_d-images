@@ -21,7 +21,6 @@ public class TP3Sque {
 		{
 			for(int j=0;j<image.getWidth();j++)
 			{
-				
 				image2.setRGB(j, i, image.getRGB(j, i));
 			}
 		}
@@ -89,14 +88,14 @@ public class TP3Sque {
 			{
 				 f=0;
 				 Color I=new Color(image.getRGB(j,i));
-				 Color colorv0=new Color(image2.getRGB(j, i+1)); //extraire v0
-				 Color colorv1=new Color(image2.getRGB(j+1, i+1));//extraire v1
-				 Color colorv2=new Color(image2.getRGB(j+1, i));//extraire v2
-				 Color colorv3=new Color(image2.getRGB(j+1, i-1));//extraire v3
-				 Color colorv4=new Color(image2.getRGB(j, i-1));//extraire v4
-				 Color colorv5=new Color(image2.getRGB(j-1, i-1));//extraire v5
-				 Color colorv6=new Color(image2.getRGB(j-1, i));//extraire v6
-				 Color colorv7=new Color(image2.getRGB(j-1, i+1));//extraire v7
+				 Color colorv0=new Color(image.getRGB(j, i+1)); //extraire v0
+				 Color colorv1=new Color(image.getRGB(j+1, i+1));//extraire v1
+				 Color colorv2=new Color(image.getRGB(j+1, i));//extraire v2
+				 Color colorv3=new Color(image.getRGB(j+1, i-1));//extraire v3
+				 Color colorv4=new Color(image.getRGB(j, i-1));//extraire v4
+				 Color colorv5=new Color(image.getRGB(j-1, i-1));//extraire v5
+				 Color colorv6=new Color(image.getRGB(j-1, i));//extraire v6
+				 Color colorv7=new Color(image.getRGB(j-1, i+1));//extraire v7
 				 		 v[0]=(colorv0.getRed()==0);
 						 v[1]=(colorv1.getRed()==0);
 						 v[2]=(colorv2.getRed()==0);
@@ -132,20 +131,15 @@ public class TP3Sque {
 						 b[j][i]=true;
 						 
 						if(b[j][i])
-							image2.setRGB(j, i, Black.getBlue());
+							image2.setRGB(j, i, 0);
 						}
 		}
 		
 		
-		try 
-		{
-			ImageIO.write(image2, "png", new File("Sqe.png")); 
-			}
-		 catch (Exception e) 
-		{
+		try { ImageIO.write(image2, "png", new File("Sqe.png")); }
+		 catch (Exception e) {
 			 e.printStackTrace() ;
-		 					 
-		}
+		 					 }
 		
 		
 		

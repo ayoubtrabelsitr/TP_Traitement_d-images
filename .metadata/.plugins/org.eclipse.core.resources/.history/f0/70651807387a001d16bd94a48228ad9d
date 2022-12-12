@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 public class TP3Sque {
 	public static void main(String[]args) throws IOException
 	{
-		BufferedImage image=ImageIO.read(new File ("D:/coursM1/TP-TNI/tools_blackandwhite.png"));
+		BufferedImage image=ImageIO.read(new File ("D:/coursM1/TP-TNI/test.png"));
 		BufferedImage image2= new BufferedImage(image.getWidth(),image.getHeight(), BufferedImage.TYPE_INT_RGB);
 		
 		boolean b[][]=new boolean [image.getWidth()][image.getHeight()]; //tableau b
