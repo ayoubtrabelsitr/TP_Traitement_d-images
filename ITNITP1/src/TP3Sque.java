@@ -12,15 +12,70 @@ public class TP3Sque {
 		BufferedImage image2= new BufferedImage(image.getWidth(),image.getHeight(), BufferedImage.TYPE_INT_RGB);;
 		boolean b[][]=new boolean [image.getHeight()][image.getWidth()]; //tableau b
 		Color Black=new Color(0,0,0);//couleur de fond
+		boolean v[]=new boolean [7];
+		int f=0;
 		
-		//initialisation de b à false
+		int transition=0;
 		
 		for (int i=0;i<image.getHeight();i++)
 		{
 			for(int j=0;j<image.getWidth();j++)
 			{
-				b[i][j]=false;
-				
+				b[j][i]=false; //initialisation de b à false
+			}
+			}
+		for (int i=0;i<image.getHeight();i++)
+		{
+			for(int j=0;j<image.getWidth();j++)
+			{
+				 Color I=new Color(image.getRGB(j,i));
+				 Color colorv0=new Color(image.getRGB(j, i+1)); //extraire v0
+				 Color colorv1=new Color(image.getRGB(j+1, i+1));//extraire v1
+				 Color colorv2=new Color(image.getRGB(j+1, i));//extraire v2
+				 Color colorv3=new Color(image.getRGB(j+1, i-1));//extraire v3
+				 Color colorv4=new Color(image.getRGB(j, i-1));//extraire v4
+				 Color colorv5=new Color(image.getRGB(j-1, i-1));//extraire v5
+				 Color colorv6=new Color(image.getRGB(j-1, i));//extraire v6
+				 Color colorv7=new Color(image.getRGB(j-1, i+1));//extraire v7
+				 		 v[0]=(colorv0.getRed()==0);
+						 v[1]=(colorv1.getRed()==0);
+						 v[2]=(colorv2.getRed()==0);
+						 v[3]=(colorv3.getRed()==0);
+						 v[4]=(colorv4.getRed()==0);
+						 v[5]=(colorv5.getRed()==0);
+						 v[6]=(colorv6.getRed()==0);
+						 v[7]=(colorv7.getRed()==0);
+						 if(v[0]&&v[1]&&v[2]&&v[3]&&v[4]&&v[5]&&v[6]&&v[7])
+						 {
+						 b[j][i]=true;
+						 }
+						 else 
+							 b[j][i]=false; 
+						 for(int d=0;d<8;d++)
+						 {
+						 if(v[d])
+							 f++;
+						 }
+						 if(f>=2)
+						 {
+						 b[j][i]=true;
+						 transition++;
+						 }
+						 if(f<=6)
+						 {
+						 b[j][i]=true;
+						 transition++;
+						 }
+						 if(v[0]||v[2]||v[4])
+						 b[j][i]=true; 
+						 if(v[2]||v[4]||v[6])
+						 b[j][i]=true;
+						 
+						 
+						 
+							 
+						 
+						 
 			}
 		}
 		
